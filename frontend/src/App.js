@@ -1,30 +1,30 @@
 import React, { Component } from "react";
 import exampleEmployees from "./exampleEmployees";
 import EmployeeList from "./components/EmployeeList";
-import Employee from "./components/Employee";
+// import Employee from "./components/Employee";
 import "./App.css";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      data: exampleEmployees,
+      placeholder: "",
+    };
   }
-
+  hello = () =>{
+ this.setState({data: exampleEmployees[this.placeholder]});
+  };
   render() {
     return (
       <div>
         <h1>Full Stack Reps!</h1>
 
-        <EmployeeList />
-
-        {/* form to choose single employee */}
+        <EmployeeList data={this.state.data}/>
         <form>
-          <input placeholder="Enter employee id"></input>
-          <button type="submit">Submit</button>
+          <input placeholder="Enter employee id" ></input>
+          <button onClick={this.hello} type="submit">Submit</button>
         </form>
-
-        {/* if an employee is selected, show that employee here */}
-        <Employee />
       </div>
     );
   }

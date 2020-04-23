@@ -1,14 +1,15 @@
 import React from "react";
 import Employee from "./Employee";
 
-const EmployeeList = () => {
+const EmployeeList = (props) => {
   return (
-    <div>
-      <Employee />
-      <Employee />
-      <Employee />
-    </div>
+    <ul>
+      {props.data.map((el,index) => 
+          <Employee key={index} 
+          value={el} />
+  )}
+  </ul>
   );
-};
-
+  }
 export default EmployeeList;
+
